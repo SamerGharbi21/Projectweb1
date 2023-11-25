@@ -74,8 +74,13 @@ if ($result) {
         <a href="login.php">Login</a>
     </div>
 
-    <form class="mt-5 text-center" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
+
+<div class="container">
     <h3> Product Information </h3>
+    </div>
+    
+    <form class="mt-5 text-center" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
+    
 
     <div class="mb-3">
         <div>
@@ -130,7 +135,10 @@ if ($result) {
 
 
 <div class="mt-5 text-center">
-        <h3 id ="pro"> All Products </h3>
+        
+<div class = "container">
+            <h3> All Products </h3>
+</div>
         <table>
             <tr>
                 <th>Name</th>

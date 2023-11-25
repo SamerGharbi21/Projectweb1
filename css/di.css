@@ -1,7 +1,12 @@
-body{
-    background-color: #F2F3F4	;
+body {
+    background-color: #F2F3F4;
+    font-family: 'Arial', sans-serif; /* Add your preferred font family here */
 }
 
+.container {
+    text-align: center;
+    margin-top: 70px;
+}
 table {
     width: 50%;
     border-collapse: collapse;
@@ -32,7 +37,6 @@ img {
     margin: auto;
 }
 
-
 .navbar {
     background-color: #B9D9EB;
     overflow: hidden;
@@ -52,8 +56,10 @@ img {
     background-color: #ddd;
     color: black;
 }
+
 form {
-    margin-top: 100px;
+    margin-top: 50px;
+    margin-bottom: 100px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -87,10 +93,10 @@ h3 {
     text-transform: uppercase;
     letter-spacing: 1px;
     text-align: center;
-
-
+    font-family: 'Your Preferred Font', sans-serif;
+    padding: 10px; /* Adjust the padding as needed */
+    background-color: #B9D9EB;
+    display: inline-block; /* Make the background color only cover the content */
 }
-#pro {
-    margin-top: 100px;
-}
+
 
