@@ -1,5 +1,9 @@
 <?php
+
+$email = "samer" ;
+
 $conn = mysqli_connect('localhost', 'root', 'root', 'projectweb');
+
 
 if (!$conn) {
     echo 'Error: ' . mysqli_connect_error();
@@ -11,42 +15,40 @@ if (isset($_POST['add_product'])) {
     $Pquantity = $_POST['Pquantity'];
     $Pdetail = $_POST['Pdetail'];
 
-
-    $target_directory = " ";
+    $target_directory = "uploadimage/";
     $target_file = $target_directory . basename($_FILES["Pimage"]["name"]);
 
-
-  if (empty($pname)) {
-      echo 'Product name is empty';
-  }elseif(empty($Pprice)) {
-    echo 'Product price is empty';
-  }elseif(empty($Pquantity)) {
-    echo 'Product quantity is empty';
-  }elseif(empty($Pdetail)) {
-    echo 'Product detail is empty';
-  }
-
-
-  else {
-    if (mysqli_query($conn, $sql)) {
-        header('Location: index.php');
+    if (empty($pname)) {
+        echo 'Product name is empty';
+    } elseif (empty($Pprice)) {
+        echo 'Product price is empty';
+    } elseif (empty($Pquantity)) {
+        echo 'Product quantity is empty';
+    } elseif (empty($Pdetail)) {
+        echo 'Product detail is empty';
     } else {
-        echo 'Error: ' . mysqli_error($conn) ;
+        
+        // Move the uploaded file
+        if (move_uploaded_file($_FILES["Pimage"]["tmp_name"], $target_file)) {
+            $Pimage = $target_file;
+
+            // SQL query
+            $sql = "INSERT INTO products(name1, price, quantity, description1 , email , image1) 
+                    VALUES ('$pname', '$Pprice', '$Pquantity', '$Pdetail', '$email' , '$Pimage')";
+
+            if (mysqli_query($conn, $sql)) {
+                header('Location: index.php');
+            } else {
+                echo 'Error: ' . mysqli_error($conn);
+            }
+        } else {
+            echo "Error uploading file.";
+        }
     }
 }
-    if (move_uploaded_file($_FILES["Pimage"]["tmp_name"], $target_file)) {
-        $Pimage = $target_file;
 
-        $sql = "INSERT INTO products(name1, price, quantity, description1 , image1) 
-                VALUES ('$pname', '$Pprice', '$Pquantity', '$Pdetail' , '$Pimage')";
-    } else {
-        echo " \n Error uploading file.";
-    }
-}
-
-$query = "SELECT * FROM products ";
+$query = "SELECT * FROM products";
 $result = mysqli_query($conn, $query);
-
 
 if ($result) {
     $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -54,7 +56,6 @@ if ($result) {
     echo 'Error: ' . mysqli_error($conn);
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -116,13 +117,15 @@ if ($result) {
             foreach ($products as $product) {
                 echo "<tr>";
                 echo "<td>{$product['name1']}</td>";
-                echo "<td>{$product['price']}</td>";
+                echo "<td> $ {$product['price']}</td>";
                 echo "<td>{$product['quantity']}</td>";
                 echo "<td>{$product['description1']}</td>";
                 echo "<td><img src='{$product['image1']}' alt='Product Image' style='max-width: 100px; max-height: 100px;'></td>";
                 echo "</tr>";
             }
             ?> 
+
+            
         </table>
     </div>
 </body>
