@@ -1,6 +1,6 @@
 body {
     background-color: #F2F3F4;
-    font-family: 'Arial', sans-serif; /* Add your preferred font family here */
+    font-family: 'Arial', sans-serif; 
 }
 
 .container {
@@ -94,9 +94,9 @@ h3 {
     letter-spacing: 1px;
     text-align: center;
     font-family: 'Your Preferred Font', sans-serif;
-    padding: 10px; /* Adjust the padding as needed */
+    padding: 10px; 
     background-color: #B9D9EB;
-    display: inline-block; /* Make the background color only cover the content */
+    display: inline-block; 
 }
 
 
