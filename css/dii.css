@@ -1,5 +1,5 @@
 body {
-    background-color: #F2F3F4;
+    background: linear-gradient(to right, rgb(173, 173, 173), #B9D9EB);
     font-family: 'Arial', sans-serif; 
 }
 
@@ -38,7 +38,7 @@ img {
 }
 
 .navbar {
-    background-color: #B9D9EB;
+    background-color: lightblue;
     overflow: hidden;
     text-align: center;
 }
@@ -97,6 +97,15 @@ h3 {
     padding: 10px; 
     background-color: #B9D9EB;
     display: inline-block; 
+    font-size: x-large;
 }
+#ss{
+    font-size: larger;
+           
+            align-items: center;
+            justify-content: center;
+            
+}
+
 
 

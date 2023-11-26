@@ -62,7 +62,7 @@ if ($result) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/di.css" >
+    <link rel="stylesheet" href="./css/dii.css" >
     <title>Document</title>
 </head>
 <body>
@@ -78,13 +78,13 @@ if ($result) {
 <div class="container">
     <h3> Product Information </h3>
     </div>
-    
+    <div id="ss">
     <form class="mt-5 text-center" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
     
 
     <div class="mb-3">
         <div>
-            <label for="pname" class="form-label">Product name</label>
+            <label for="pname" class="form-label">Product name :</label>
         </div>
         <div>
             <input type="text" class="form-control" name="pname" id="pname" placeholder="Enter Product name" value="<?php echo $pname ?>">
@@ -93,7 +93,7 @@ if ($result) {
 
     <div class="mb-3">
         <div>
-            <label for="Pprice" class="form-label">Product Price</label>
+            <label for="Pprice" class="form-label">Product Price :</label>
         </div>
         <div>
             <input type="number" class="form-control" name="Pprice" id="Pprice" placeholder="Enter Product Price" value="<?php echo $Pprice ?>">
@@ -102,7 +102,7 @@ if ($result) {
 
     <div class="mb-3">
         <div>
-            <label for="Pquantity" class="form-label">Product Quantity</label>
+            <label for="Pquantity" class="form-label">Product Quantity :</label>
         </div>
         <div>
             <input type="number" class="form-control" name="Pquantity" id="Pquantity" placeholder="Enter Product Quantity" value="<?php echo $Pquantity ?>">
@@ -111,7 +111,7 @@ if ($result) {
 
 <div class="mb-3">
         <div>
-            <label for="Pdetail" class="form-label">Product Details</label>
+            <label for="Pdetail" class="form-label">Product Details :</label>
         </div>
         <div>
             <input type="text" class="form-control" name="Pdetail" id="Pdetail" placeholder="Enter Product Details" value="<?php echo $Pdetail ?>">
@@ -120,7 +120,7 @@ if ($result) {
 
     <div class="mb-3">
         <div>
-            <label for="Pimage" class="form-label">Product Image</label>
+            <label for="Pimage" class="form-label">Product Image :</label>
         </div>
         <div>
             <input type="file" class="form-control" name="Pimage" id="Pimage" value="<?php echo $Pimage ?>">
@@ -132,7 +132,7 @@ if ($result) {
     <button type="submit" name="add_product" value="add product" class="btn">Add Product</button>
 </form>
 
-
+</div>
 
 <div class="mt-5 text-center">
         
