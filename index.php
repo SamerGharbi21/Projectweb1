@@ -2,12 +2,7 @@
 
 $email = "samer" ;
 
-$conn = mysqli_connect('localhost', 'root', 'root', 'projectweb');
-
-
-if (!$conn) {
-    echo 'Error: ' . mysqli_connect_error();
-}
+include './DB/DB.php';
 
 if (isset($_POST['add_product'])) {
     $pname = $_POST['pname'];
@@ -28,11 +23,9 @@ if (isset($_POST['add_product'])) {
         echo 'Product detail is empty';
     } else {
         
-        // Move the uploaded file
         if (move_uploaded_file($_FILES["Pimage"]["tmp_name"], $target_file)) {
             $Pimage = $target_file;
 
-            // SQL query
             $sql = "INSERT INTO products(name1, price, quantity, description1 , email , image1) 
                     VALUES ('$pname', '$Pprice', '$Pquantity', '$Pdetail', '$email' , '$Pimage')";
 
@@ -62,18 +55,24 @@ if ($result) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/dii.css" >
+    <link rel="stylesheet" href="./css/di.css" >
     <title>Document</title>
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <div class="navbar">
-        <a href="index.php">Home</a>
-        <a href="orders.php">Orders</a>
-        <a href="cart.php">Cart</a>
-        <a href="login.php">Login</a>
-    </div>
 
+
+        <header>
+        <h2 class="logo"><i><b>Market Hub</b></i></h2>
+        <nav>
+            <ul class="nav_links">
+                <li> <a href="mindex.php">Home</a> </li>
+                <li> <a href="orders.php">Orders</a> </li>
+                <li> <a href="cart.php">Cart</a> </li>
+            </ul>
+        </nav>
+        <a href="#"><button class="profile_btn">Profile</button></a>
+    </header>
+    
 
 <div class="container">
     <h3> Product Information </h3>
@@ -120,10 +119,11 @@ if ($result) {
 
     <div class="mb-3">
         <div>
-            <label for="Pimage" class="form-label">Product Image :</label>
+           
         </div>
-        <div>
-            <input type="file" class="form-control" name="Pimage" id="Pimage" value="<?php echo $Pimage ?>">
+        <div class="imageBTN">
+            <button type="button">Choose Image</button>
+            <input type="file" name="Pimage" id="Pimage" value="<?php echo $Pimage ?>">
         </div>
     </div>
 
@@ -141,15 +141,16 @@ if ($result) {
 </div>
         <table>
             <tr>
-                <th>Name</th>
+               <th>Name</th>
                 <th>Price</th>
                 <th>Quantity</th>
                 <th>Details</th>
                 <th>Image</th>
             </tr>
             <?php
-            // Loop through each product and display its information
-            foreach ($products as $product) {
+
+
+                foreach ($products as $product) {
                 echo "<tr>";
                 echo "<td>{$product['name1']}</td>";
                 echo "<td> $ {$product['price']}</td>";
